@@ -33,6 +33,13 @@ const Login = () => {
   return (
     <div className="animate-fade-in" style={{ maxWidth: '400px', margin: '4rem auto' }}>
       <div className="glass-panel" style={{ padding: '2rem' }}>
+        <div className="graph-container">
+          <div className="graph-bar"></div>
+          <div className="graph-bar"></div>
+          <div className="graph-bar"></div>
+          <div className="graph-bar"></div>
+          <div className="graph-bar"></div>
+        </div>
         <h2 style={{ textAlign: 'center', marginBottom: '1.5rem', fontSize: '1.5rem' }}>Welcome Back</h2>
         
         {error && <div style={{ background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444', padding: '0.75rem', borderRadius: '0.5rem', marginBottom: '1.5rem' }}>{error}</div>}
