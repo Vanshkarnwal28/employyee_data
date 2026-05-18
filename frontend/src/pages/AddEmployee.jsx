@@ -34,7 +34,7 @@ const AddEmployee = () => {
         experience: Number(formData.experience)
       };
 
-      await axios.post('http://localhost:5001/api/employees', payload, {
+      await axios.post('https://perfanalytics-api.onrender.com/api/employees', payload, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       

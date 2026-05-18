@@ -19,7 +19,7 @@ const Signup = () => {
     setLoading(true);
 
     try {
-      await axios.post('http://localhost:5001/api/auth/register', formData);
+      await axios.post('https://perfanalytics-api.onrender.com/api/auth/register', formData);
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed. Please try again.');

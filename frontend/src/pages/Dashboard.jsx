@@ -12,8 +12,8 @@ const Dashboard = () => {
     try {
       setLoading(true);
       const url = query 
-        ? `http://localhost:5001/api/employees/search?department=${query}` 
-        : 'http://localhost:5001/api/employees';
+        ? `https://perfanalytics-api.onrender.com/api/employees/search?department=${query}` 
+        : 'https://perfanalytics-api.onrender.com/api/employees';
         
       const res = await axios.get(url, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -38,7 +38,7 @@ const Dashboard = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this employee?')) {
       try {
-        await axios.delete(`http://localhost:5001/api/employees/${id}`, {
+        await axios.delete(`https://perfanalytics-api.onrender.com/api/employees/${id}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         setEmployees(employees.filter(emp => emp._id !== id));

@@ -13,7 +13,7 @@ const AIRecommendations = () => {
   useEffect(() => {
     const fetchAIInsights = async () => {
       try {
-        const res = await axios.post('http://localhost:5001/api/ai/recommend', 
+        const res = await axios.post('https://perfanalytics-api.onrender.com/api/ai/recommend', 
           { employeeId: id },
           { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
         );
