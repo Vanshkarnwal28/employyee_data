@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "b3e9f4a1-8d2b-4d43-9118-2c7c1b52a1d3",
-		"name": "PerfAnalytics AI APIs",
+		"name": "PerfAnalytics AI APIs - Live",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -23,19 +23,21 @@
 							"raw": "{\n    \"name\": \"Admin User\",\n    \"email\": \"admin@example.com\",\n    \"password\": \"admin123\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/auth/register",
-							"protocol": "http",
+							"raw": "https://perfanalytics-api.onrender.com/api/auth/register",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"perfanalytics-api",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"auth",
 								"register"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Login",
@@ -45,7 +47,9 @@
 							"script": {
 								"exec": [
 									"var jsonData = pm.response.json();",
-									"pm.environment.set(\"jwt_token\", jsonData.token);"
+									"if(jsonData.token){",
+									"    pm.environment.set(\"jwt_token\", jsonData.token);",
+									"}"
 								],
 								"type": "text/javascript"
 							}
@@ -64,43 +68,39 @@
 							"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"admin123\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/auth/login",
-							"protocol": "http",
+							"raw": "https://perfanalytics-api.onrender.com/api/auth/login",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"perfanalytics-api",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"auth",
 								"login"
 							]
 						}
-					}
+					},
+					"response": []
 				}
 			]
 		},
 		{
-			"name": "Employees",
+			"name": "Employee Management",
 			"item": [
 				{
 					"name": "Add Employee",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt_token}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
 							}
 						],
 						"body": {
@@ -108,70 +108,65 @@
 							"raw": "{\n    \"name\": \"Aman Verma\",\n    \"email\": \"aman@gmail.com\",\n    \"department\": \"Development\",\n    \"skills\": [\"React\", \"Node.js\", \"MongoDB\"],\n    \"performanceScore\": 85,\n    \"experience\": 3\n}"
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/employees",
-							"protocol": "http",
+							"raw": "https://perfanalytics-api.onrender.com/api/employees",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"perfanalytics-api",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"employees"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Get All Employees",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt_token}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:5000/api/employees",
-							"protocol": "http",
+							"raw": "https://perfanalytics-api.onrender.com/api/employees",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"perfanalytics-api",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"employees"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Search Employees",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt_token}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:5000/api/employees/search?department=Development",
-							"protocol": "http",
+							"raw": "https://perfanalytics-api.onrender.com/api/employees/search?department=Development",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"perfanalytics-api",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"employees",
@@ -184,31 +179,26 @@
 								}
 							]
 						}
-					}
+					},
+					"response": []
 				}
 			]
 		},
 		{
-			"name": "AI Insights",
+			"name": "AI Recommendations",
 			"item": [
 				{
 					"name": "Get AI Recommendation",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{jwt_token}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
 							}
 						],
 						"body": {
@@ -216,19 +206,21 @@
 							"raw": "{\n    \"employeeId\": \"PASTE_AN_EMPLOYEE_ID_HERE\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/ai/recommend",
-							"protocol": "http",
+							"raw": "https://perfanalytics-api.onrender.com/api/ai/recommend",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"perfanalytics-api",
+								"onrender",
+								"com"
 							],
-							"port": "5000",
 							"path": [
 								"api",
 								"ai",
 								"recommend"
 							]
 						}
-					}
+					},
+					"response": []
 				}
 			]
 		}

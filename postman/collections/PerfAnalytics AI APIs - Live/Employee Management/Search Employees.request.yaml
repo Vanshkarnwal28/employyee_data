@@ -1,0 +1,8 @@
+$kind: http-request
+url: https://perfanalytics-api.onrender.com/api/employees/search?department=Development
+method: GET
+headers:
+  Authorization: Bearer {{jwt_token}}
+queryParams:
+  department: Development
+order: 3000

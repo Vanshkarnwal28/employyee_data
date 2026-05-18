@@ -1,0 +1,13 @@
+$kind: http-request
+url: https://perfanalytics-api.onrender.com/api/ai/recommend
+method: POST
+headers:
+  Content-Type: application/json
+  Authorization: Bearer {{jwt_token}}
+body:
+  type: text
+  content: |-
+    {
+        "employeeId": "PASTE_AN_EMPLOYEE_ID_HERE"
+    }
+order: 1000

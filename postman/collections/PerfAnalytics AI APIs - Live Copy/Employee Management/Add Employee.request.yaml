@@ -1,0 +1,18 @@
+$kind: http-request
+url: https://perfanalytics-api.onrender.com/api/employees
+method: POST
+headers:
+  Content-Type: application/json
+  Authorization: Bearer {{jwt_token}}
+body:
+  type: text
+  content: |-
+    {
+        "name": "Aman Verma",
+        "email": "aman@gmail.com",
+        "department": "Development",
+        "skills": ["React", "Node.js", "MongoDB"],
+        "performanceScore": 85,
+        "experience": 3
+    }
+order: 1000
