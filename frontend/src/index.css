@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
   --primary-color: #a855f7; /* Vibrant Purple */
@@ -6,8 +6,8 @@
   --secondary-color: #d946ef; /* Fuchsia */
   --bg-color: #030014; /* Deep Black/Purple Space */
   --bg-card: rgba(15, 10, 31, 0.75); /* Dark Purple Card */
-  --text-color: #f8fafc;
-  --text-muted: #a78bfa; /* Soft Light Purple */
+  --text-color: #ffffff; /* Pure White */
+  --text-muted: #ffffff; /* Changed to White */
   --glass-border: rgba(168, 85, 247, 0.15);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   --success: #10b981;
@@ -19,7 +19,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Inter', sans-serif;
+  color: #ffffff !important; /* Force all text to white */
 }
 
 body {
@@ -37,7 +38,7 @@ body {
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
 /* Glassmorphism Classes */
@@ -57,9 +58,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-label {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: var(--text-muted);
   margin-bottom: 0.5rem;
 }
 
@@ -69,14 +69,12 @@ h1, h2, h3, h4, h5, h6 {
   background-color: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--glass-border);
   border-radius: 0.75rem;
-  color: var(--text-color);
   font-size: 1rem;
-  font-family: 'Outfit', sans-serif;
   transition: all 0.3s ease;
 }
 
 .form-input::placeholder {
-  color: rgba(167, 139, 250, 0.5);
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
 .form-input:focus {
@@ -103,7 +101,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: white;
   box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
 }
 
@@ -114,18 +111,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-secondary {
   background: rgba(168, 85, 247, 0.1);
-  color: #e9d5ff;
   border: 1px solid rgba(168, 85, 247, 0.3);
 }
 
 .btn-secondary:hover {
   background: rgba(168, 85, 247, 0.2);
-  color: white;
 }
 
 .btn-danger {
   background: var(--danger);
-  color: white;
 }
 
 .btn-danger:hover {
@@ -151,9 +145,8 @@ h1, h2, h3, h4, h5, h6 {
 .page-title {
   font-size: 2.5rem;
   font-weight: 800;
-  background: linear-gradient(to right, #ffffff, #c084fc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: none;
+  -webkit-text-fill-color: #ffffff;
 }
 
 /* Cards */
@@ -178,13 +171,11 @@ h1, h2, h3, h4, h5, h6 {
 .card-title {
   font-size: 1.35rem;
   margin-bottom: 0.5rem;
-  color: #fff;
   font-weight: 700;
 }
 
 .card-subtitle {
   font-size: 0.9rem;
-  color: var(--text-muted);
   margin-bottom: 1.25rem;
 }
 
@@ -196,7 +187,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.75rem;
   font-weight: 600;
   background: rgba(168, 85, 247, 0.15);
-  color: #e9d5ff;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
   border: 1px solid rgba(168, 85, 247, 0.3);
@@ -222,9 +212,8 @@ th, td {
 
 th {
   font-weight: 600;
-  color: var(--text-muted);
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 0.05em;
   background: rgba(0, 0, 0, 0.2);
 }
@@ -248,7 +237,7 @@ tr:hover {
 }
 
 .error-text {
-  color: #fca5a5;
+  color: #ffb3b3 !important;
   font-size: 0.875rem;
   margin-top: 0.5rem;
 }
@@ -271,7 +260,6 @@ tr:hover {
 .nav-brand {
   font-size: 1.6rem;
   font-weight: 800;
-  color: white;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -286,7 +274,6 @@ tr:hover {
 }
 
 .nav-link {
-  color: var(--text-muted);
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
@@ -294,6 +281,5 @@ tr:hover {
 }
 
 .nav-link:hover, .nav-link.active {
-  color: #fff;
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
